@@ -9,7 +9,9 @@ class App extends Component {
     super(props);
     this.state = {
       homestays: [],
-      selectedHomestay : null
+      selectedHomestay : null,
+      allHomestays: [],
+      search: ""
     };
   }
 
@@ -18,7 +20,8 @@ class App extends Component {
     .then(response => response.json())
     .then((data) => {
       this.setState({
-        homestays: data
+        homestays: data,
+        allHomestays: data
       });
     })
   }
@@ -26,6 +29,13 @@ class App extends Component {
   selectHomestay = (homestay) => {
     this.setState({
       selectedHomestay: homestay
+    })
+  }
+
+  handleSearch= (event) => {
+    this.setState({
+      search: event.target.value,
+      homestays: this.state.allHomestays.filter((homestay) => new RegExp(event.target.value, "i").exec(homestay.nama))
     })
   }
 
@@ -44,6 +54,12 @@ class App extends Component {
     return (
       <div className="app">
         <div className="main">
+          <div className="search">
+              <input type="text"
+              placeholder="Cari..."
+              value={this.state.search}
+              onChange={this.handleSearch} />
+            </div>
           <div className="homestays">
             { this.state.homestays.map((homestay) => {
               return <Homestay key={homestay.id} homestay={homestay} selectHomestay={this.selectHomestay}/>

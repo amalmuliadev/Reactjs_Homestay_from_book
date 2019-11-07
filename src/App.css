@@ -1,22 +1,29 @@
-.App {
-  text-align: center;
+.app {
+  display : flex;
 }
 
-.App-logo {
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.main {
+  flex-basis: 60%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background-color: #dbdbdb;
 }
 
-.App-link {
-  color: #09d3ac;
+.homestays {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
 }
+
+.homestay {
+  margin: 10px;
+}
+
+.peta {
+  flex-grow: 1;
+  height: 100vh;
+  top: 0;
+  position: sticky;
+  background-color: steelblue;
+}
+

@@ -1,0 +1,20 @@
+.homestay {
+    flex-basis: calc(50% - 20px);
+    margin: 10px;
+    cursor: pointer;
+}
+
+.homestay:hover {
+    opacity: 0.8;
+}
+
+.homestay-foto {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+}
+
+.homestay-judul {
+    margin-top: 10px;
+    font-weight: bold;
+}
